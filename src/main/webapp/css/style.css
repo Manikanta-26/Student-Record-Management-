@@ -1,0 +1,226 @@
+/* ============================================================
+   Student Record Management System — Stylesheet
+   ============================================================ */
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: #f0f4f8;
+  color: #1a202c;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── LAYOUT ── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ── HEADER ── */
+.site-header {
+  background: #1f3864;
+  color: #fff;
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.header-inner { display: flex; align-items: center; justify-content: space-between; }
+.logo { display: flex; align-items: center; gap: 10px; }
+.logo-icon { font-size: 22px; }
+.logo-text { font-size: 18px; font-weight: 700; letter-spacing: 0.02em; }
+
+nav { display: flex; gap: 8px; }
+.nav-link {
+  color: rgba(255,255,255,0.80);
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.15s, color 0.15s;
+}
+.nav-link:hover, .nav-link.active {
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+}
+
+/* ── MAIN ── */
+main { flex: 1; padding: 28px 0; }
+
+.page-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.page-title { font-size: 22px; font-weight: 700; color: #1f3864; }
+
+/* ── SEARCH ── */
+.search-form { display: flex; gap: 8px; }
+.search-input {
+  border: 1.5px solid #cbd5e0;
+  border-radius: 7px;
+  padding: 8px 14px;
+  font-size: 14px;
+  width: 220px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.search-input:focus { border-color: #1f3864; }
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.filter-label { font-size: 13px; color: #718096; font-weight: 600; }
+.filter-chip {
+  padding: 5px 14px;
+  border-radius: 20px;
+  border: 1.5px solid #cbd5e0;
+  font-size: 13px;
+  color: #4a5568;
+  text-decoration: none;
+  background: #fff;
+  transition: all 0.15s;
+}
+.filter-chip:hover, .filter-chip.active {
+  background: #1f3864;
+  color: #fff;
+  border-color: #1f3864;
+}
+
+/* ── CARD ── */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* ── TABLE ── */
+.table-wrap { overflow-x: auto; }
+.data-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+.data-table thead tr { background: #1f3864; color: #fff; }
+.data-table th {
+  padding: 13px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+.data-table tbody tr { border-bottom: 1px solid #edf2f7; transition: background 0.1s; }
+.data-table tbody tr:last-child { border-bottom: none; }
+.data-table tbody tr:hover { background: #f7faff; }
+.data-table td { padding: 12px 16px; color: #2d3748; }
+
+.cgpa-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.cgpa-high   { background: #c6f6d5; color: #276749; }
+.cgpa-mid    { background: #fefcbf; color: #744210; }
+.cgpa-low    { background: #fed7d7; color: #9b2c2c; }
+
+.empty-state { text-align: center; color: #a0aec0; padding: 40px !important; font-size: 15px; }
+
+/* ── BUTTONS ── */
+.btn {
+  padding: 8px 18px;
+  border-radius: 7px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: opacity 0.15s, transform 0.1s;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn:hover { opacity: 0.88; transform: translateY(-1px); }
+.btn-primary   { background: #1f3864; color: #fff; }
+.btn-secondary { background: #e2e8f0; color: #2d3748; }
+.btn-danger    { background: #e53e3e; color: #fff; }
+.btn-sm        { padding: 5px 12px; font-size: 13px; }
+
+/* ── ACTION LINKS ── */
+.action-links { display: flex; gap: 8px; align-items: center; }
+.action-link {
+  font-size: 13px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+.action-edit   { color: #2b6cb0; background: #ebf8ff; }
+.action-delete { color: #c53030; background: #fff5f5; }
+.action-link:hover { opacity: 0.75; }
+
+/* ── MODAL ── */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 200;
+  animation: fadeIn 0.15s ease;
+}
+.modal {
+  background: #fff;
+  border-radius: 14px;
+  padding: 32px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.20);
+}
+.modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; }
+.modal-header h2 { font-size: 18px; font-weight: 700; color: #1f3864; }
+.modal-close { background: none; border: none; font-size: 20px; cursor: pointer; color: #718096; }
+.modal-close:hover { color: #e53e3e; }
+
+/* ── FORM ── */
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-size: 13px; font-weight: 600; color: #4a5568; }
+.form-group input,
+.form-group select {
+  border: 1.5px solid #cbd5e0;
+  border-radius: 7px;
+  padding: 9px 12px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+.form-group input:focus,
+.form-group select:focus { border-color: #1f3864; }
+.form-actions { grid-column: 1 / -1; display: flex; justify-content: flex-end; gap: 10px; margin-top: 8px; }
+
+/* ── FOOTER ── */
+.site-footer {
+  background: #1f3864;
+  color: rgba(255,255,255,0.6);
+  text-align: center;
+  padding: 14px 0;
+  font-size: 13px;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .page-top { flex-direction: column; align-items: flex-start; }
+  .form-grid { grid-template-columns: 1fr; }
+  .search-input { width: 100%; }
+  nav { display: none; }
+}
